@@ -35,6 +35,7 @@ export default class Home extends Component {
         <header className="jumbotron">
           <h3>{this.state.content}</h3>
         </header>
+        {/* <img src="https://picsum.photos/seed/picsum/200/300"></img> */}
       </div>
     );
   }

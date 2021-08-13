@@ -1,19 +1,19 @@
 import React, { Component } from "react";
-import { Switch, Route, Link } from "react-router-dom";
+import { BrowserRouter as Switch, Route, Link } from "react-router-dom";
 import "bootstrap/dist/css/bootstrap.min.css";
 import "./App.css";
 
-import AuthService from "./services/auth.service";
+import AuthService from "./services/auth.service.js";
 
 import Login from "./components/login.component";
-import Register from "./components/register.component";
-import Home from "./components/home.component";
-import Profile from "./components/profile.component";
-import BoardUser from "./components/board-user.component";
-import BoardModerator from "./components/board-moderator.component";
-import BoardAdmin from "./components/board-admin.component";
+import Register from "./components/register.component.js";
+import Home from "./components/home.component.js";
+import Profile from "./components/profile.component.js";
+import BoardUser from "./components/board-user.component.js";
+import BoardModerator from "./components/board-moderator.component.js";
+import BoardAdmin from "./components/board-admin.component.js";
 
-// import AuthVerify from "./common/auth-verify";
+import AuthVerify from "./common/auth-verify";
 import EventBus from "./common/EventBus";
 
 class App extends Component {
@@ -24,7 +24,7 @@ class App extends Component {
     this.state = {
       showModeratorBoard: false,
       showAdminBoard: false,
-      currentUser: undefined,
+      currentUser: undefined
     };
   }
 
@@ -33,7 +33,8 @@ class App extends Component {
 
     if (user) {
       this.setState({
-        currentUser: user,
+        //Removed user, before AuthService
+        currentUser: AuthService.getCurrentUser(),
         showModeratorBoard: user.roles.includes("ROLE_MODERATOR"),
         showAdminBoard: user.roles.includes("ROLE_ADMIN"),
       });
@@ -64,7 +65,7 @@ class App extends Component {
       <div>
         <nav className="navbar navbar-expand navbar-dark bg-dark">
           <Link to={"/"} className="navbar-brand">
-            bezKoder
+            CAMAJI
           </Link>
           <div className="navbar-nav mr-auto">
             <li className="nav-item">
@@ -76,7 +77,7 @@ class App extends Component {
             {showModeratorBoard && (
               <li className="nav-item">
                 <Link to={"/mod"} className="nav-link">
-                  Moderator Board
+                  Moderator
                 </Link>
               </li>
             )}
@@ -84,7 +85,7 @@ class App extends Component {
             {showAdminBoard && (
               <li className="nav-item">
                 <Link to={"/admin"} className="nav-link">
-                  Admin Board
+                  Admin
                 </Link>
               </li>
             )}
@@ -140,7 +141,7 @@ class App extends Component {
           </Switch>
         </div>
 
-        { /*<AuthVerify logOut={this.logOut}/> */ }
+        <AuthVerify logOut={this.logOut}/>
       </div>
     );
   }

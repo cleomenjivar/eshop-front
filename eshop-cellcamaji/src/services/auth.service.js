@@ -1,6 +1,8 @@
 import axios from "axios";
 
-const API_URL = "http://localhost:3000/api/auth/";
+const API_URL = "https://camaji.herokuapp.com/api/auth/signup";
+
+// const API_URL = "http://localhost:8080/api/auth/";
 
 class AuthService {
   login(username, password) {
@@ -35,4 +37,4 @@ class AuthService {
   }
 }
 
-export default new AuthService();
+export default AuthService();

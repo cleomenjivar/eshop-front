@@ -9,7 +9,7 @@ const required = value => {
   if (!value) {
     return (
       <div className="alert alert-danger" role="alert">
-        This field is required!
+        This field is required to proceed!
       </div>
     );
   }
@@ -84,7 +84,7 @@ export default class Login extends Component {
       <div className="col-md-12">
         <div className="card card-container">
           <img
-            src="//ssl.gstatic.com/accounts/ui/avatar_2x.png"
+            src="http://www.myfootprintcalculator.com/metro_tiles/login.png"
             alt="profile-img"
             className="profile-img-card"
           />

@@ -5,7 +5,7 @@ import "./App.css";
 
 import AuthService from "./services/auth.service.js";
 
-import Login from "./components/login.component";
+import Login from "./components/login.component.js";
 import Register from "./components/register.component.js";
 import Home from "./components/home.component.js";
 import Profile from "./components/profile.component.js";
@@ -33,7 +33,7 @@ class App extends Component {
 
     if (user) {
       this.setState({
-        //Removed user, before AuthService
+        //Removed user, before AuthService to ask for authorization
         currentUser: AuthService.getCurrentUser(),
         showModeratorBoard: user.roles.includes("ROLE_MODERATOR"),
         showAdminBoard: user.roles.includes("ROLE_ADMIN"),
@@ -65,7 +65,7 @@ class App extends Component {
       <div>
         <nav className="navbar navbar-expand navbar-dark bg-dark">
           <Link to={"/"} className="navbar-brand">
-            CAMAJI
+            CAMAJI SHOP
           </Link>
           <div className="navbar-nav mr-auto">
             <li className="nav-item">

@@ -1,33 +1,73 @@
 import React, { Component } from "react";
 
 import UserService from "../services/user.service";
+import EventBus from "../common/EventBus";
 
-export default class Home extends Component {
-  constructor(props) {
-    super(props);
+// export default class Home extends Component {
+//   constructor(props) {
+//     super(props);
 
-    this.state = {
-      content: ""
-    };
-  }
+//     this.state = {
+//       content: ""
+//     };
+//   }
 
-  componentDidMount() {
-    UserService.getPublicContent().then(
-      response => {
-        this.setState({
-          content: response.data
-        });
-      },
-      error => {
-        this.setState({
-          content:
-            (error.response && error.response.data) ||
-            error.message ||
-            error.toString()
-        });
-      }
-    );
-  }
+//   componentDidMount() {
+//     UserService.getPublicContent().then(
+//       response => {
+//         this.setState({
+//           content: response.data
+//         });
+//       },
+//       error => {
+//         this.setState({
+//           content:
+//             (error.response && error.response.data) ||
+//             error.message ||
+//             error.toString()
+//         });
+
+//         if (error.response && error.response.status === 401) {
+//           EventBus.dispatch("logout");
+//         }
+//       }
+//     );
+//   }
+
+  //This is to take to the board of users
+
+  export default class BoardUser extends Component {
+    constructor(props) { 
+      super(props);
+          this.state = {
+            content: ""
+          }; 
+        }
+  
+    componentDidMount() {
+      UserService.getUserBoard().then(
+        response => { 
+            this.setState({
+              content: response.data
+          }); 
+        },
+
+        error => {
+          this.setState({
+            content:
+              (error.response &&
+                error.response.data &&
+                error.response.data.message) ||
+              error.message ||
+              error.toString()
+          });
+  
+          if (error.response && error.response.status === 401) {
+            EventBus.dispatch("logout");
+          }
+        }
+      );
+    }
 
   render() {
     return (

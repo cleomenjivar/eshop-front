@@ -1,7 +1,8 @@
 import axios from "axios";
 
-const API_URL = "https://camaji.herokuapp.com/api/auth/signup";
+const API_URL = "https://camaji.herokuapp.com/api/auth";
 
+//This is a variable makes you changing locally
 // const API_URL = "http://localhost:8080/api/auth/";
 
 class AuthService {
@@ -13,7 +14,8 @@ class AuthService {
       })
       .then(response => {
         if (response.data.accessToken) {
-          localStorage.setItem("user", JSON.stringify(response.data));
+          sessionStorage.setItem("user", JSON.stringify(response.data));
+          //localStorage.setItem("user", JSON.stringify(response.data));
         }
 
         return response.data;
@@ -21,7 +23,8 @@ class AuthService {
   }
 
   logout() {
-    localStorage.removeItem("user");
+    sessionStorage.removeItem("user");
+    //localStorage.removeItem("user");
   }
 
   register(username, email, password) {
@@ -33,8 +36,9 @@ class AuthService {
   }
 
   getCurrentUser() {
-    return JSON.parse(localStorage.getItem('user'));;
+    return JSON.parse(sessionStorage.getItem('user'));;
+    //return JSON.parse(localStorage.getItem('user'));;
   }
 }
 
-export default AuthService();
+export default new AuthService();

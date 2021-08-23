@@ -1,16 +1,26 @@
+.navbar {
+  border-radius: 5px;
+  display: flex;
+  margin: 1px;
+  padding: 2%;
+}
+
 label {
   display: block;
   margin-top: 10px;
+  color: white;
+  margin: 5 auto;
 }
 
 .card-container.card {
   max-width: 350px !important;
   padding: 40px 40px;
   display: flex;
-}
+  border-radius: 5%;
+  }
 
 .card {
-  background-color: rgb(86, 84, 84);
+  background-color: rgb(167, 167, 167);
   padding: 20px 25px 30px;
   margin: 0 auto 25px;
   margin-top: 50px;
@@ -23,11 +33,25 @@ label {
 }
 
 .profile-img-card {
-  width: 96px;
-  height: 96px;
-  margin: 0 auto 10px;
+  width: 200px;
+  height: 200px;
+  margin: 0 auto 20px;
   display: block;
   -moz-border-radius: 50%;
   -webkit-border-radius: 50%;
   border-radius: 50%;
+}
+
+.navbar-brand {
+  display: flex;
+  text-align: center;
+  display: block;
+}
+
+.btn {
+  margin-top: 15px;
+}
+
+#container {
+  margin: 0px;
 }

@@ -84,7 +84,7 @@ export default class Login extends Component {
       <div className="col-md-12">
         <div className="card card-container">
           <img
-            src="http://www.myfootprintcalculator.com/metro_tiles/login.png"
+            src="https://www.pedigreecatworld.co.uk/wp-content/uploads/2019/05/customers-icon-3.png"
             alt="profile-img"
             className="profile-img-card"
           />

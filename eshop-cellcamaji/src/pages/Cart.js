@@ -5,9 +5,9 @@ export default class Products extends React.Component {
     constructor(props) {
         super(props)
     this.state = {
-        "brand": "Iphone", 
-        "model": "11",
-        "price": 10.5
+        "brand": "Zeubiii"
+        "model": "qweawdadrtyadada",
+        "price": "3002222"
         };
 
         this.handleSubmit=this.handleSubmit.bind(this)
@@ -30,7 +30,7 @@ export default class Products extends React.Component {
                 <h1>Testing the Cart Page</h1>
                     {/* <form method="POST" onSubmit={this.handleSubmit}>
                         <input type="submit" />
-                </form> */}
+                        </form> */}
             </div>
         )
     };
